@@ -1,9 +1,12 @@
 import random
 
 class Car:
-    def __init__(self, color, width, height, speed):
+    def __init__(self, color, width, height, speed, crossRoadChangeDirection):
         self.initializeRandomyCar()
+        self.move()
 
+    def removeCar(self):
+        print("Removing the car from the simulation...")
 
     def initializeRandomyCar(self):
         self.color = random.choice(["red", "blue", "green", "yellow", "black"])
@@ -19,6 +22,8 @@ class Car:
         print("Car height:", self.height)
         print("Car speed:", self.speed, "m/s")
 
+    def move(self):
+        print("The car is moving at a speed of", self.speed, "m/s")
 
 
     def changeSpeed(self, vitesse):
@@ -34,12 +39,12 @@ class Car:
             print("Invalid direction. Please specify 'left' or 'right'.")
     
     
-    def changeDirection(self, new_direction):
+    def changeDirection(self):
         # we have 3 at the cross-road, so we can change the direction of the car: 
         # 1. continue straight
         # 2. take left
         # 3. take right
-        print("Changing direction to:", new_direction)
+        print("Changing direction to:", self.crossRoadChangeDirection)
         
 
 
